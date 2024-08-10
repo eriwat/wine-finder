@@ -1,0 +1,57 @@
+
+.wine-item {
+    @apply flex items-center
+    bg-white shadow-xl rounded-lg p-4 mb-10 lg:max-w-[50%] relative
+    min-h-[300px];
+  }
+  
+  .wine-item__image-container {
+    @apply w-1/5 flex-shrink-0;
+  }
+  
+  .wine-item__image {
+    @apply h-auto
+    absolute
+    -top-5
+    ;
+  }
+  
+  .wine-item__details {
+    @apply w-3/5 px-4;
+  }
+  
+  .wine-item__winery-name {
+    @apply text-gray-600;
+  }
+  
+  .wine-item__wine-name {
+    @apply font-semibold text-gray-800;
+  }
+  
+  .wine-item__region {
+    @apply flex items-center text-sm text-gray-600 mt-2;
+  }
+  
+  .wine-item__flag {
+    @apply w-5 h-5 mr-2;
+  }
+  
+  .wine-item__rating-container {
+    @apply w-1/5 text-center;
+  }
+  
+  .wine-item__rating {
+    @apply text-2xl text-gray-800;
+  }
+  
+  .wine-item__rating-stars {
+    @apply mr-1 relative inline-block text-gray-300;
+  }
+  
+  .wine-item__rating-stars-foreground {
+    @apply absolute top-0 left-0 overflow-hidden text-yellow-400;
+  }
+  
+  .wine-item__rating-count {
+    @apply text-sm text-gray-600;
+  }

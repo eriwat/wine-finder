@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gray-50;
+}
+
+.header {
+  @apply h-[100px] flex justify-center flex-col p-10 text-white;
+  background-color: #8E041A;
+}
+
+.header__title {
+  @apply text-3xl uppercase;
+}
+
+.header__subtitle {
+  @apply text-sm normal-case;
+}
+
+.wine-list {
+  @apply p-10;
+}
+
+.wine-item {
+  @apply flex items-center
+  bg-white shadow-xl rounded-lg p-4 mb-10 lg:max-w-[50%] relative
+  min-h-[300px];
+}
+
+.wine-item__image-container {
+  @apply w-1/5 flex-shrink-0;
+}
+
+.wine-item__image {
+  @apply h-auto
+  absolute
+  -top-5
+  ;
+}
+
+.wine-item__details {
+  @apply w-3/5 px-4;
+}
+
+.wine-item__winery-name {
+  @apply text-gray-600;
+}
+
+.wine-item__wine-name {
+  @apply font-semibold text-gray-800;
+}
+
+.wine-item__region {
+  @apply flex items-center text-sm text-gray-600 mt-2;
+}
+
+.wine-item__flag {
+  @apply w-5 h-5 mr-2;
+}
+
+.wine-item__rating-container {
+  @apply w-1/5 text-center;
+}
+
+.wine-item__rating {
+  @apply text-2xl text-gray-800;
+}
+
+.wine-item__rating-stars {
+  @apply mr-1 relative inline-block text-gray-300;
+}
+
+.wine-item__rating-stars-foreground {
+  @apply absolute top-0 left-0 overflow-hidden text-yellow-400;
+}
+
+.wine-item__rating-count {
+  @apply text-sm text-gray-600;
+}
+
+.filter__container {
+  @apply px-10 py-5 mt-5;
+}
+
+.filter__title {
+  @apply text-lg;
+}
+
+.filter__button {
+  @apply m-1 px-4 py-2 bg-gray-200 text-sm text-gray-600 rounded-full;
+  transition: background-color 0.2s ease;
+}
+
+.filter__button:hover {
+  @apply bg-gray-300;
+}
+
+.filter__button-active {
+  @apply  bg-blue-500 text-white hover:bg-blue-600;
+}
+
+.spinner {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
