@@ -1,51 +1,33 @@
 import './App.css'
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import Header from './components/Header';
 import WineList from './components/WineList';
-import Filter from './components/Filter';
+import CountryFilter from './components/CountryFilter';
 import Spinner from './components/Spinner';
+import Error from './components/Error';
 
-import { fetchWineData } from './utils/api';
+import useHttp from './hooks/useHttp';
 
-function App() {
-  const [wineData, setWineData] = useState();
+const App = () => {
   const [selectedCountry, setSelectedCountry] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const { data: wineData, isLoading, error } = useHttp(selectedCountry)
 
-  useEffect(() => {
-    async function loadWineData() {
-      setIsLoading(true);
-      try {
-        const data = await fetchWineData(selectedCountry);
-        setWineData(data);
-      } catch (error) {
-        console.error('Failed to fetch wine data:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    loadWineData();
-  }, [selectedCountry]);
-
-  function handleSelectCountry(country) {
-    if (!selectedCountry.includes(country)) {
-      setSelectedCountry(prevCountries => [...prevCountries, country]);
-    } else {
-      setSelectedCountry(prevCountries => prevCountries.filter(item => item !== country));
-    }
+  const handleFilterCountry = (filteredCountries) =>{
+    setSelectedCountry(filteredCountries);
+    console.log('Filtered countries:', filteredCountries);
   }
 
   return (
     <>
       <Header />
-      <Filter onSelectCountry={handleSelectCountry} selectedCountry={selectedCountry} />
+      <CountryFilter onFilterCountry={handleFilterCountry} />
       {isLoading &&
         <Spinner />
       }
-      <WineList wineData={wineData} />
+      {wineData && <WineList wineData={wineData} />}
+      {error && <Error title="Failed to fetch data" message={error} />}
     </>
   )
 }
