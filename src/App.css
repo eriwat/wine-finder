@@ -20,28 +20,25 @@ body {
 }
 
 .wine-list {
-  @apply p-10;
+  @apply p-10 flex flex-wrap gap-10 ;
 }
 
 .wine-item {
-  @apply flex items-center
-  bg-white shadow-xl rounded-lg p-4 mb-10 lg:max-w-[50%] relative
-  min-h-[300px];
+  @apply flex flex-wrap items-center bg-white shadow-xl rounded-lg p-4 w-[100%] lg:w-[49%] max-w-[500px] relative min-h-[270px];
 }
 
 .wine-item__image-container {
-  @apply w-1/5 flex-shrink-0;
+  @apply w-1/2 lg:w-1/5 flex-shrink-0 order-1 min-h-[270px];
 }
 
 .wine-item__image {
   @apply h-auto
   absolute
-  -top-5
-  ;
+  -top-5 left-[5vw] lg:left-5;
 }
 
 .wine-item__details {
-  @apply w-3/5 px-4;
+  @apply w-full lg:w-3/5 px-4 mt-4 lg:mt-0 order-3 lg:order-2;
 }
 
 .wine-item__winery-name {
@@ -61,7 +58,7 @@ body {
 }
 
 .wine-item__rating-container {
-  @apply w-1/5 text-center;
+  @apply w-1/2 lg:w-1/5 text-center order-2 lg:order-3;
 }
 
 .wine-item__rating {
@@ -80,25 +77,8 @@ body {
   @apply text-sm text-gray-600;
 }
 
-.filter__container {
-  @apply px-10 py-5 mt-5;
-}
-
-.filter__title {
-  @apply text-lg;
-}
-
-.filter__button {
-  @apply m-1 px-4 py-2 bg-gray-200 text-sm text-gray-600 rounded-full;
-  transition: background-color 0.2s ease;
-}
-
-.filter__button:hover {
-  @apply bg-gray-300;
-}
-
-.filter__button-active {
-  @apply  bg-blue-500 text-white hover:bg-blue-600;
+.filter {
+  @apply m-10 mb-0;
 }
 
 .spinner {
@@ -119,4 +99,8 @@ body {
 
 .fade-in {
   animation: fadeIn 0.3s ease-in-out;
+}
+
+.error {
+  @apply mx-10 bg-red-200 rounded p-5;
 }
