@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Spinner() {
+const Spinner = () => {
     return (
         <svg
             className="spinner"
@@ -8,7 +8,8 @@ export default function Spinner() {
             width="50"
             height="50"
             viewBox="0 0 100 100"
-            fill="none"
+            fill="none"role="status"
+            aria-label="Loading"
         >
             <circle
                 cx="50"
@@ -34,4 +35,4 @@ export default function Spinner() {
     )
 
 };
-
+export default Spinner;

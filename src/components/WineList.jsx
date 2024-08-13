@@ -1,8 +1,6 @@
-
-
 import WineItem from "./WineItem";
 
-export default function WineList({wineData}) {
+const WineList = ({wineData}) => {
     return (
         <ul className="wine-list">         
             {wineData && wineData.map((wine) =>
@@ -13,3 +11,4 @@ export default function WineList({wineData}) {
         </ul>
     )
 };
+export default WineList;

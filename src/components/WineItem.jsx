@@ -1,9 +1,9 @@
-export default function ({ wine }) {
+const WineItem = ({ wine }) => {
 
     const countryCodeFormatted = wine.vintage.wine.region.country.code.toUpperCase();
     const rating = wine.vintage.statistics.wine_ratings_average;
 
-    function getStarPercentage () {
+    const getStarPercentage = () => {
         return `${(rating / 5) * 100}%`;
     };
 
@@ -43,3 +43,4 @@ export default function ({ wine }) {
         </li>
     )
 }
+export default WineItem;

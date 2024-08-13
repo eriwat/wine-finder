@@ -1,4 +1,4 @@
-export default function Filter({onSelectCountry, selectedCountry}) {
+const Filter = ({onSelectCountry, selectedCountry}) => {
 
     const countries = [
         { "code": "ar", "name": "Argentina" },
@@ -36,3 +36,4 @@ export default function Filter({onSelectCountry, selectedCountry}) {
         </fieldset>
     )
 }
+export default Filter;
